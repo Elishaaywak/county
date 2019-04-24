@@ -1,0 +1,226 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 29, 2017 at 03:30 PM
+-- Server version: 5.1.30
+-- PHP Version: 5.2.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `counties`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `adminid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `telephone` text NOT NULL,
+  `password` text NOT NULL,
+  `about` text,
+  `profilepic` text,
+  PRIMARY KEY (`adminid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminid`, `name`, `email`, `telephone`, `password`, `about`, `profilepic`) VALUES
+(1, 'Elisha', 'elishaaywak@gmail.com', '0700755078', 'elisha', 'A very dedicated programmar', '1.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+CREATE TABLE IF NOT EXISTS `reports` (
+  `reportid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` text,
+  `telephone` text NOT NULL,
+  `wardid` int(200) NOT NULL,
+  `report` text NOT NULL,
+  `status` text NOT NULL,
+  `comments` text,
+  `serviceid` int(200) NOT NULL,
+  `photo` text,
+  `longitude` text,
+  `latitude` text,
+  `reportdate` date DEFAULT NULL,
+  `reporttime` time DEFAULT NULL,
+  `attachment` text,
+  PRIMARY KEY (`reportid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`reportid`, `name`, `email`, `telephone`, `wardid`, `report`, `status`, `comments`, `serviceid`, `photo`, `longitude`, `latitude`, `reportdate`, `reporttime`, `attachment`) VALUES
+(1, 'Elisha Aywak', 'elishaaywak@gmail.com', '0700755078', 1, 'A tree has fallen down along Uhuru Highway', 'Solved', 'The tree has been removed', 4, 'NULL', '36.81660', '-1.28493', '2017-02-17', NULL, ''),
+(2, 'Elisha Aywak', 'elishaaywak@gmail.com', '0712345678', 1, 'There is no medicine ', 'Fowarded', '0', 3, 'NULL', '36.85014', '-1.31076', '2017-01-17', NULL, ''),
+(3, 'Onesmus Kamau', 'onesmus@gmail.com', '0877766655', 7, 'No medicine!!!', 'Pending', 'NULL', 3, 'NULL', '36.87115', '-1.30108', '2017-02-17', NULL, ''),
+(4, 'Ann Mary', 'ann@ymail.com', '0712345678', 1, 'There is a lot of litter next to the main stage', 'Fowarded', 'NULL', 4, 'NULL', '37.02461', '-1.05875', '2017-02-17', NULL, ''),
+(5, 'Fred Kamau', 'fred@g.com', '44444', 1, 'abcd', 'Dismissed', 'abcs', 4, 'NULL', '36.91475', '-1.25303', '2017-03-17', NULL, ''),
+(6, 'Priscilla /ndungu', 'p@gmail.com', '07123444', 1, 'The drought is really bad and the irrigation system is not working', 'Fowarded', 'NULL', 10, 'NULL', '36.89329', '-1.25371', '2017-03-22', NULL, ''),
+(7, 'Risper Atieno', 'risper@rocketmail.com', '1223333333', 1, 'Logging was supposed to be stopped. How comes there are still people who are trying to destroy the forest?', 'Fowarded', 'NULL', 10, 'NULL', '36.86154', '-1.32717', '2017-03-22', NULL, ''),
+(8, 'Mark Lemein', 'lwm@yahoo.com', '0788666777', 1, 'No medicine in Kamukunji Hospital', 'Fowarded', 'NULL', 8, 'NULL', '36.88625', '-1.31172', '2017-03-22', NULL, ''),
+(9, 'Caspar Waithaka', 'cas@gmail.com', '0766666', 1, 'No streetlight is working in Kamukunji. they are all vandalized', 'Pending', '0', 11, 'NULL', '36.83310', '-1.28428', '2017-03-22', NULL, ''),
+(10, 'Allan Njeru', 'alan@gmail.com', '0712333444', 1, 'A sewer has busted and is contaminating drinking water.', 'Dismissed', 'Nothing found on the place.', 8, 'NULL', '36.87947', '-1.24728', '2017-03-24', NULL, ''),
+(11, 'Pius Munene', 'mn@ymail.com', '0788767889999', 1, 'Dying fish in our only fish pond due to contamination of the source river', 'Pending', 'NULL', 10, 'NULL', '36.89827', '-1.28872', '2017-04-11', '15:34:04', ''),
+(12, 'Lelan Lelan', 'lel@ymail.com', '076655566', 1, 'Too much sewage is spilling in the rivers', 'Pending', 'NULL', 2, 'NULL', '36.88110', '-1.29696', '2017-04-12', '14:39:32', ''),
+(14, 'Mohammed Ali', 'mohammed@ymail.com', '0733333333', 1, 'Too many thieves next to kamukunji market', 'Pending', 'NULL', 11, 'NULL', '36.80660', '-1.20495', '2017-04-19', '11:39:24', ''),
+(15, 'stephen', '', '', 8, 'Garbage not collected along juja road at mlango kubwa near karambee stage.', 'Pending', 'NULL', 2, 'NULL', '36.79871', '-1.29270', '2017-04-20', '11:37:04', ''),
+(16, 'stephen', '', '', 8, 'blockage of tunnel of water near karambe stage juja road mlango kubwa.', 'Pending', 'NULL', 2, 'NULL', '36.84686', '-1.26691', '2017-04-20', '12:00:52', ''),
+(17, 'Mark Karubiu', 'karubiu@ymail.com', '0987678', 1, 'No medicine in huruma dispensary. Our children are sufering', 'Pending', 'NULL', 8, 'NULL', '36.87072', '-1.25801', '2017-04-24', '12:18:34', ''),
+(18, 'Purity Wangui', 'p@gmail.com', '938734', 1, 'There are no nets in disposal to prevent the spread of Malariaa', 'Pending', 'NULL', 8, 'NULL', '36.87321', '-1.26118', '2017-04-24', '12:23:16', ''),
+(57, 'Gideon', NULL, '0700755078', 1, 'Litter in the streets', 'Pending', NULL, 2, NULL, NULL, NULL, '2017-04-29', '12:42:01', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sector_users`
+--
+
+CREATE TABLE IF NOT EXISTS `sector_users` (
+  `userid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `telephone` text NOT NULL,
+  `password` text NOT NULL,
+  `serviceid` int(200) NOT NULL,
+  `about` text,
+  `profilepic` text,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `sector_users`
+--
+
+INSERT INTO `sector_users` (`userid`, `name`, `email`, `telephone`, `password`, `serviceid`, `about`, `profilepic`) VALUES
+(2, 'Brian Osoro', 'bosoro@ymail.com', '0766555666', 'brian', 2, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE IF NOT EXISTS `services` (
+  `serviceid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `brief` text,
+  PRIMARY KEY (`serviceid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`serviceid`, `name`, `description`, `brief`) VALUES
+(1, 'Roads, Public Works and Transport', 'This sector deals with roads repair, rehabilitation and construction, street lighting', 'Roads'),
+(2, 'Environment, Energy Water', 'This sector is responsible for the collection of garbage and supply of water to city residents.', 'Environment&Water'),
+(3, 'Urban Planning and Lands', 'This sector deals with regularization of property, approval of building plans and advertisements', 'Urban Planning'),
+(4, 'Urban Renewal,Housing and Building Services', 'this sector deals with all matters concerning  urban renewal and regeneration of old houses ', 'Housing'),
+(5, 'Education, Youth and Social Services', 'This is the sector that deals with Education(ECD and Vocational training, Issues of street families)', 'Education'),
+(6, 'Public Service Management (PSM)', 'This sector deals with NCCG employee relations both internally and externally', 'Public Service'),
+(7, 'Commerce,Tourism and Co-operative Sector', 'This sector deals with all the markets in Nairobi, Single Business Permits, tourism, co-operatives and Liquor', 'Commerce&Tourism'),
+(8, 'Health Services ', 'This sector handles all the County health installations.', 'Health'),
+(9, 'Information Communication Technology and e- Government ', 'This sector is in-charge of ICT in the county amongst other things all online payment especially eJijipay', 'ICT'),
+(10, 'Agriculture, Livestock, Fisheries, Forestry and Natural Resources', 'This sector is incharge of Agriculture (crops), Livestock development, Veterinary services and Fisheries. This includes, fish farming, animal vaccinations, poultry and animal slaughter houses', 'Natural Resources'),
+(11, 'County Security, Compliance, Fire and Disaster Management', 'This  sector is  under the office of the Governor and the team is  tasked with provision of security and enforcement  services, fire and disaster management in  the City which includes removal of illegal structures, traffic marshals and environment enforcement.', 'Security&Fire');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_county`
+--
+
+CREATE TABLE IF NOT EXISTS `sub_county` (
+  `subcountyid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  PRIMARY KEY (`subcountyid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `sub_county`
+--
+
+INSERT INTO `sub_county` (`subcountyid`, `name`) VALUES
+(1, 'Mathare'),
+(2, 'Starehe'),
+(3, 'Kamukunji');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wards`
+--
+
+CREATE TABLE IF NOT EXISTS `wards` (
+  `wardid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `scountyid` int(11) NOT NULL,
+  PRIMARY KEY (`wardid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+
+--
+-- Dumping data for table `wards`
+--
+
+INSERT INTO `wards` (`wardid`, `name`, `scountyid`) VALUES
+(1, 'Huruma', 1),
+(2, 'Kiamaiko', 1),
+(3, 'Mabatini', 1),
+(4, 'Mlango Kubwa', 1),
+(5, 'Ngei', 1),
+(6, 'Hospital', 1),
+(7, 'Kariokor', 2),
+(8, 'Nairobi Central', 2),
+(9, 'Nairobi South', 2),
+(10, 'Ngara', 2),
+(11, 'Land Mawe', 2),
+(12, 'Pangani', 2),
+(13, 'Eastleigh Base', 3),
+(14, 'Eastleigh North', 3),
+(15, 'California', 3),
+(16, 'Eastleigh South', 3),
+(17, 'Pumwani', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ward_admin`
+--
+
+CREATE TABLE IF NOT EXISTS `ward_admin` (
+  `adminid` int(200) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `telephone` text NOT NULL,
+  `password` text NOT NULL,
+  `wardid` text NOT NULL,
+  `profilepic` text,
+  `about` text,
+  PRIMARY KEY (`adminid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `ward_admin`
+--
+
+INSERT INTO `ward_admin` (`adminid`, `name`, `email`, `telephone`, `password`, `wardid`, `profilepic`, `about`) VALUES
+(2, 'Peter John', 'peter@ymail.com', '07123456777', 'peter', '1', NULL, NULL),
+(4, 'Joseph', 'Josephm@yahoo.com', '045786224452', 'joseph', '4', NULL, NULL);
